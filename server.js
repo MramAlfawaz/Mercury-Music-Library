@@ -8,8 +8,10 @@ mongoose.connect('mongodb://localhost/auth',{useUnifiedTopology : true , useNewU
 app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({extended:false}))
+
+
 app.use('/user' , require('./route/user'))
 // app.get('/' , (req , res) =>{
 //     res.send("test")
 // })
-app.listen(8000 , ()=> console.log('server run on 8000'))
+app.listen(8001 , ()=> console.log('server run on 8001'))
