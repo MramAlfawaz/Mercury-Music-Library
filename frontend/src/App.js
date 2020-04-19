@@ -62,6 +62,11 @@ export default class App extends Component {
 
           <Route path="/signin" component={Signin} />
           <Route path="/forgot" component={Forgot} />
+          <Route
+            exact
+            path="/reset/:token"
+            render={(props) => <Reset {...props} />}
+          />
 
           <Route path="/signup" component={Signup} />
         </Switch>

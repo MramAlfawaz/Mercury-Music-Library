@@ -8,21 +8,24 @@ export default class Forgot extends Component {
   };
   Submit = (e) => {
     e.preventDefault();
-    alert("TEST");
-    Axios.post("http://localhost:8001/user/forgot", { email: this.state.email })
+    Axios.post(`http://localhost:8001/user/forgetPass`, {
+      email: this.state.email,
+    })
       .then((res) => {
         console.log(res);
       })
       .catch((err) => {
-        console.log(err);
+        console.log(err.response);
       });
   };
 
   change = (e) => {
-    this.setState({ ...this.state, email: this.state.email });
+    console.log(this.props.location);
+    this.setState({ ...this.state, email: e.target.value });
   };
 
   render() {
+    console.log(this.props.history.location);
     return (
       <Row className="justify-content-center mt-5">
         <Col md={8}>
